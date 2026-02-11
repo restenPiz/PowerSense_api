@@ -32,8 +32,6 @@ class RecargaController extends Controller
             ], 400);
         }
 
-        // TODO: Aqui você integraria com a API da EDM para validar o código
-        // Por enquanto, simulamos a resposta
         $valor = 500; // MT (simulado)
         $kwh = $valor / 10; // 10 MT = 1 kWh (simulado)
 
