@@ -18,7 +18,8 @@ return new class extends Migration {
             $table->timestamp('data_hora');
             $table->timestamp('created_at')->useCurrent();
 
-            $table->index(['contador_id', 'data_hora']);
+            $table->index('data_hora');
+            $table->index('contador_id');
         });
     }
 
