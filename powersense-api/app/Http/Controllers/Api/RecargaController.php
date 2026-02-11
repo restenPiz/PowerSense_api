@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Recarga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RecargaController extends Controller
 {
-    /**
-     * Inserir código de recarga
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
