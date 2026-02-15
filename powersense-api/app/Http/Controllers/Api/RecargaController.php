@@ -60,6 +60,7 @@ class RecargaController extends Controller
         $recargas = $contador->recargas()
             ->orderBy('data_recarga', 'desc')
             ->paginate(20);
+        // $recargas = Recarga::orderBy('data_recarga', 'desc')->paginate(20);
 
         return response()->json([
             'success' => true,

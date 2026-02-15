@@ -28,3 +28,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/recargas', [RecargaController::class, 'index']);
     Route::get('/recarga/{id}', [RecargaController::class, 'show']);
 });
+
