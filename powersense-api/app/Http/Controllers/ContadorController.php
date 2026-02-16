@@ -9,7 +9,7 @@ class ContadorController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Pages/Contador', [
+        return Inertia::render('Contador', [
             'contadores' => \App\Models\Contador::all()
         ]);
     }

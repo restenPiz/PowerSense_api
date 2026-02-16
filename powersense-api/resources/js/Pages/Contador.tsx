@@ -3,37 +3,13 @@ import axios from 'axios';
 
 interface Contador {
     id: number;
-    nombre: string;
-    valor: number;
-    estado: string;
-    fecha_actualizacion: string;
+    numero_contador: string;
+    nome_proprietario: string;
+    endereco: string;
+    saldo_kwh: number;
 }
 
-export default function Contador() {
-    const [contadores, setContadores] = useState<Contador[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        fetchContadores();
-    }, []);
-
-    const fetchContadores = async () => {
-        try {
-            setLoading(true);
-            const response = await axios.get('/api/contadores');
-            setContadores(response.data);
-            setError(null);
-        } catch (err) {
-            setError('Error fetching contadores');
-            console.error(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+export default function Contador({ contadores }: { contadores: Contador[] }) {
 
     return (
         <div>
@@ -42,20 +18,19 @@ export default function Contador() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Valor</th>
-                        <th>Estado</th>
-                        <th>Última Actualización</th>
+                        <th>Numero do Contador</th>
+                        <th>Nome do Proprietario</th>
+                        <th>Endereco</th>
+                        <th>Saldo em Kwh</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {contadores.map((contador) => (
+                    {contadores.map((contador: Contador) => (
                         <tr key={contador.id}>
-                            <td>{contador.id}</td>
-                            <td>{contador.nombre}</td>
-                            <td>{contador.valor}</td>
-                            <td>{contador.estado}</td>
-                            <td>{contador.fecha_actualizacion}</td>
+                            <td>{contador.numero_contador}</td>
+                            <td>{contador.nome_proprietario}</td>
+                            <td>{contador.endereco}</td>
+                            <td>{contador.saldo_kwh}</td>
                         </tr>
                     ))}
                 </tbody>

@@ -9,7 +9,7 @@ class RecargaController extends Controller
 {
     public function index()
     {
-        return \Inertia\Inertia::render('Pages/Recarga', [
+        return \Inertia\Inertia::render('Recarga', [
             'recargas' => Recarga::all()
         ]);
     }
