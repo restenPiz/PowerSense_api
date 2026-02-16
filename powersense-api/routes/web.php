@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecargaController;
+use App\Http\Controllers\ContadorController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,7 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //*Recarga Routes
-    Route::get('/recargas', [RecargaController::class, 'index'])->name('recargas.index');
+    Route::get('/recargas', [RecargaController::class, 'index'])->name('recargas');
+
+    //*Contador Routes
+    Route::get('/contadores', [ContadorController::class, 'index'])->name('contadores');
 });
 
 require __DIR__ . '/auth.php';
